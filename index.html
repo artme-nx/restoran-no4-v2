@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Restoran No. 4 — Šibenik · Moderni mediteranski restoran</title>
+<meta name="description" content="Restoran No. 4 — moderni mediteranski restoran u kamenoj jezgri Šibenika. Trg Dinka Zavorovića 4. Meso sa žara, riba iz mora, vino s brda. Rezervirajte stol." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#141414; --bg2:#1B1A18; --paper:#EFEAE0; --text:#C9C3B7; --soft:#8C857A;
+    --accent:#C8762E; /* burnt amber */
+    --line:rgba(239,234,224,.14); --line-soft:rgba(239,234,224,.08);
+    --font-display:'Space Grotesk', system-ui, sans-serif;
+    --font-body:'Newsreader', Georgia, serif;
+    --maxw:1340px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{ -webkit-font-smoothing:antialiased }
+  body{ background:var(--bg); color:var(--text); font-family:var(--font-body);
+    font-size:18px; line-height:1.65; overflow-x:hidden }
+  img{ display:block; max-width:100% }
+  a{ color:inherit; text-decoration:none }
+  ::selection{ background:var(--accent); color:#141414 }
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 36px }
+  .eyebrow{ font-family:var(--font-display); font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:var(--soft); font-weight:500 }
+  h1,h2,h3{ font-family:var(--font-display); font-weight:500; line-height:1.02; letter-spacing:-.02em; color:var(--paper) }
+
+  /* HEADER */
+  header.site{ position:fixed; inset:0 0 auto 0; z-index:60;
+    display:flex; align-items:center; justify-content:space-between; padding:22px 36px;
+    transition:background .4s, padding .4s, border-color .4s; border-bottom:1px solid transparent }
+  header.site.scrolled{ background:rgba(20,20,20,.82); backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line-soft); padding:14px 36px }
+  .brand{ font-family:var(--font-display); font-weight:700; font-size:22px; color:var(--paper); letter-spacing:-.01em }
+  .brand sup{ color:var(--accent); font-size:.6em; font-weight:500 }
+  nav.main{ display:flex; gap:36px; align-items:center }
+  .nav-links{ display:flex; gap:36px; align-items:center }
+  nav.main a{ font-family:var(--font-display); font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--soft); transition:color .3s }
+  nav.main a:hover{ color:var(--paper) }
+  .btn-res{ font-family:var(--font-display); font-size:12px; letter-spacing:.1em; text-transform:uppercase;
+    background:var(--accent); color:#141414; border:none; padding:12px 22px; cursor:pointer; font-weight:600;
+    transition:opacity .3s; white-space:nowrap }
+  .btn-res:hover{ opacity:.85 }
+  .burger{ display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:6px }
+  .burger span{ width:24px; height:1.5px; background:var(--paper); transition:.3s }
+
+  /* HERO */
+  .hero{ position:relative; height:100vh; min-height:640px; overflow:hidden;
+    display:flex; align-items:center; justify-content:center; text-align:center }
+  .hero-bg{ position:absolute; inset:0; z-index:0 }
+  .hero-bg img{ width:100%; height:100%; object-fit:cover; transform:scale(1.18) }
+  .hero-bg::after{ content:''; position:absolute; inset:0;
+    background:radial-gradient(120% 90% at 50% 40%, rgba(20,20,20,.35), rgba(20,20,20,.82)) }
+  .hero-content{ position:relative; z-index:2; padding:0 24px; width:100% }
+  .hero .eyebrow{ color:rgba(239,234,224,.7); margin-bottom:28px }
+  .hero h1{ font-size:clamp(54px,11vw,180px); color:var(--paper); letter-spacing:-.04em; line-height:.92 }
+  .hero h1 .row{ display:block; overflow:hidden }
+  .hero h1 .row i{ display:block; font-style:normal }
+  .hero h1 .amp{ color:var(--accent) }
+  .hero .tag{ font-family:var(--font-body); font-style:italic; font-size:clamp(18px,2.4vw,28px);
+    color:var(--paper); margin-top:30px; opacity:0 }
+  .hero .num-ghost{ position:absolute; z-index:1; left:50%; top:50%; transform:translate(-50%,-50%);
+    font-family:var(--font-display); font-weight:700; font-size:min(78vh,68vw); color:rgba(239,234,224,.05);
+    letter-spacing:-.05em; pointer-events:none; line-height:1 }
+  .hero .num-ghost sup{ font-size:.4em }
+  .scrollcue{ position:absolute; left:50%; transform:translateX(-50%); bottom:26px; z-index:3;
+    font-family:var(--font-display); font-size:10px; letter-spacing:.24em; text-transform:uppercase; color:rgba(239,234,224,.6) }
+  .scrollcue .l{ display:block; width:1px; height:34px; background:rgba(239,234,224,.4); margin:10px auto 0;
+    transform-origin:top; animation:cue 2.2s ease-in-out infinite }
+  @keyframes cue{ 0%,100%{transform:scaleY(.3)} 50%{transform:scaleY(1)} }
+
+  /* SECTIONS */
+  .pad{ padding:clamp(96px,15vh,200px) 0 }
+  .reveal{ opacity:0; transform:translateY(28px) }
+  .line-mask{ display:block; overflow:hidden }
+  .line-mask span{ display:block }
+
+  /* MARQUEE */
+  .marq{ border-top:1px solid var(--line); border-bottom:1px solid var(--line); overflow:hidden;
+    white-space:nowrap; padding:20px 0; background:var(--bg2) }
+  .marq-track{ display:inline-flex; animation:marquee 28s linear infinite; will-change:transform }
+  .marq-track span{ font-family:var(--font-display); font-size:clamp(20px,3vw,38px); font-weight:500;
+    color:var(--paper); padding:0 28px; letter-spacing:-.01em }
+  .marq-track span b{ color:var(--accent); font-weight:500 }
+  @keyframes marquee{ 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+  @media (prefers-reduced-motion:reduce){ .marq-track{ animation:none } }
+
+  /* MANIFEST */
+  .manifest{ text-align:center }
+  .manifest .big{ font-family:var(--font-body); font-size:clamp(26px,4vw,52px); line-height:1.3;
+    color:var(--paper); max-width:20ch; margin:34px auto 0 }
+  .manifest .big em{ font-style:italic; color:var(--accent) }
+  .manifest .sm{ font-family:var(--font-body); font-size:18px; color:var(--text); max-width:56ch; margin:34px auto 0 }
+
+  /* MENU */
+  .sechead{ display:flex; align-items:flex-end; justify-content:space-between; gap:24px;
+    margin-bottom:60px; border-bottom:1px solid var(--line); padding-bottom:26px }
+  .sechead h2{ font-size:clamp(40px,7vw,96px) }
+  .sechead .idx{ font-family:var(--font-display); font-size:13px; letter-spacing:.16em; text-transform:uppercase; color:var(--accent) }
+  .menu-grid{ display:grid; grid-template-columns:1fr 1fr; gap:0 70px }
+  .mcat{ padding:34px 0; border-top:1px solid var(--line-soft) }
+  .mcat h3{ font-family:var(--font-display); font-size:12px; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--accent); font-weight:600; margin-bottom:26px }
+  .dish{ display:flex; justify-content:space-between; gap:30px; margin-bottom:26px; align-items:baseline }
+  .dish .l .n{ font-family:var(--font-display); font-size:21px; color:var(--paper); font-weight:500 }
+  .dish .l .d{ font-family:var(--font-body); font-size:15.5px; color:var(--soft); margin-top:5px; max-width:40ch; line-height:1.55 }
+  .dish .no{ font-family:var(--font-display); font-size:13px; color:var(--soft); flex:0 0 auto }
+  .menu-note{ font-family:var(--font-body); font-style:italic; font-size:15px; color:var(--soft); margin-top:14px }
+
+  /* PINNED STORY */
+  .story-pin{ position:relative }
+  .pin-stage{ height:100vh; display:flex; align-items:center; overflow:hidden }
+  .pin-inner{ display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; width:100%; }
+  .pin-num{ font-family:var(--font-display); font-weight:700; font-size:clamp(120px,20vw,320px);
+    color:rgba(239,234,224,.07); line-height:.78; letter-spacing:-.05em; margin-bottom:10px }
+  .pin-num sup{ font-size:.4em; color:var(--accent) }
+  .pin-text h2{ font-size:clamp(34px,5vw,68px); margin-bottom:24px }
+  .pin-text .step{ position:relative }
+  .pin-text p{ font-family:var(--font-body); color:var(--text); font-size:19px; max-width:46ch; margin-bottom:16px }
+  .pin-text p strong{ color:var(--paper); font-weight:400; font-style:italic }
+  .pin-img{ position:relative; height:74vh; overflow:hidden }
+  .pin-img img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0 }
+  .pin-img img.active{ opacity:1 }
+
+  /* GALLERY */
+  .gal{ display:grid; grid-template-columns:repeat(12,1fr); gap:16px }
+  .gal figure{ overflow:hidden; position:relative }
+  .gal figure img{ width:100%; height:100%; object-fit:cover; transition:transform .9s cubic-bezier(.2,.7,.2,1) }
+  .gal figure:hover img{ transform:scale(1.05) }
+  .g1{ grid-column:span 7; aspect-ratio:16/10 }
+  .g2{ grid-column:span 5; aspect-ratio:4/5 }
+  .g3{ grid-column:span 5; aspect-ratio:4/5 }
+  .g4{ grid-column:span 7; aspect-ratio:16/10 }
+  .gal figcaption{ position:absolute; left:16px; bottom:14px; font-family:var(--font-display); font-size:11px;
+    letter-spacing:.18em; text-transform:uppercase; color:#fff; text-shadow:0 1px 8px rgba(0,0,0,.5) }
+
+  /* VISIT */
+  .visit{ display:grid; grid-template-columns:1.1fr .9fr; gap:0; border-top:1px solid var(--line) }
+  .visit .col{ padding:56px 0 }
+  .visit .col.left{ padding-right:64px }
+  .visit .col.right{ padding-left:64px; border-left:1px solid var(--line) }
+  .visit h3{ font-family:var(--font-display); font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--accent); margin-bottom:20px }
+  .visit .big{ font-family:var(--font-display); font-size:clamp(24px,3.4vw,40px); color:var(--paper); line-height:1.12 }
+  .visit p{ color:var(--text); margin-top:12px; font-size:17px }
+  .visit a.lnk{ display:inline-block; margin-top:22px; font-family:var(--font-display); font-size:12px;
+    letter-spacing:.12em; text-transform:uppercase; color:var(--paper); border-bottom:1px solid var(--accent); padding-bottom:3px }
+  .hours{ list-style:none; margin-top:6px }
+  .hours li{ display:flex; justify-content:space-between; max-width:340px; padding:11px 0; border-bottom:1px solid var(--line-soft); font-size:16px }
+  .hours li span:first-child{ color:var(--soft) }
+  .hours li span:last-child{ color:var(--paper); font-family:var(--font-display); font-size:15px }
+  .mapframe{ margin-top:46px; border:1px solid var(--line) }
+  .mapframe iframe{ width:100%; height:400px; border:0; display:block; filter:grayscale(.5) invert(.9) hue-rotate(180deg) contrast(.9) }
+
+  /* FOOTER */
+  footer{ border-top:1px solid var(--line); padding:90px 0 44px }
+  .foot-brand{ font-family:var(--font-display); font-weight:700; font-size:clamp(64px,16vw,220px); color:var(--paper);
+    line-height:.82; letter-spacing:-.05em; text-align:center }
+  .foot-brand sup{ color:var(--accent); font-size:.4em }
+  .foot-row{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:30px; margin-top:60px; align-items:flex-start }
+  .foot-c .lab{ font-family:var(--font-display); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--soft); margin-bottom:12px }
+  .foot-c a{ display:block; margin-bottom:7px; font-family:var(--font-body); font-size:16px; color:var(--text) }
+  .foot-c a:hover{ color:var(--accent) }
+  .foot-bot{ border-top:1px solid var(--line-soft); margin-top:54px; padding-top:24px;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
+    font-family:var(--font-display); font-size:11px; letter-spacing:.08em; color:var(--soft); text-transform:uppercase }
+
+  /* RES PANEL */
+  .res-panel{ position:fixed; top:0; right:0; width:min(460px,100vw); height:100dvh; background:var(--bg2);
+    z-index:200; transform:translateX(100%); transition:transform .5s cubic-bezier(.7,0,.2,1);
+    padding:40px 38px; overflow-y:auto; border-left:1px solid var(--line) }
+  .res-panel.open{ transform:translateX(0) }
+  .res-ov{ position:fixed; inset:0; background:rgba(0,0,0,.6); z-index:150; opacity:0; pointer-events:none; transition:opacity .4s }
+  .res-ov.open{ opacity:1; pointer-events:all }
+  .res-panel .x{ background:none; border:none; font-size:28px; cursor:pointer; float:right; color:var(--paper); line-height:1 }
+  .res-panel h3{ font-family:var(--font-display); font-size:30px; margin-bottom:8px; color:var(--paper) }
+  .res-panel .ph{ font-family:var(--font-body); font-size:15px; color:var(--soft); margin-bottom:30px }
+  .field{ margin-bottom:18px }
+  .field label{ display:block; font-family:var(--font-display); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--soft); margin-bottom:7px }
+  .field input,.field select,.field textarea{ width:100%; padding:13px 14px; border:1px solid var(--line);
+    background:#0E0E0E; font-family:var(--font-body); font-size:16px; color:var(--paper); border-radius:0 }
+  .field textarea{ resize:vertical; min-height:80px }
+  .res-submit{ width:100%; padding:15px; background:var(--accent); color:#141414; border:none;
+    font-family:var(--font-display); font-size:12px; letter-spacing:.12em; text-transform:uppercase; cursor:pointer; font-weight:600; margin-top:8px }
+  .res-call{ text-align:center; margin-top:24px; font-family:var(--font-body); font-size:15px; color:var(--soft) }
+  .res-call a{ color:var(--accent); border-bottom:1px solid var(--accent) }
+
+  @media (max-width:900px){
+    .nav-links{ display:none }
+    .burger{ display:flex }
+    header.site.open-m .nav-links{ display:flex; position:fixed; inset:64px 0 auto 0; flex-direction:column;
+      background:var(--bg); padding:30px 36px; gap:22px; border-bottom:1px solid var(--line) }
+    .menu-grid{ grid-template-columns:1fr }
+    .pin-inner{ grid-template-columns:1fr; gap:30px }
+    .pin-img{ height:48vh }
+    .pin-stage{ height:auto; padding:60px 0 }
+    .gal .g1,.gal .g2,.gal .g3,.gal .g4{ grid-column:span 12; aspect-ratio:16/10 }
+    .visit{ grid-template-columns:1fr }
+    .visit .col.left{ padding-right:0 }
+    .visit .col.right{ padding-left:0; border-left:none; border-top:1px solid var(--line) }
+    .wrap{ padding:0 22px } header.site,header.site.scrolled{ padding:14px 22px }
+  }
+  @media (prefers-reduced-motion:reduce){
+    .reveal{ opacity:1!important; transform:none!important }
+    .hero-bg img{ transform:scale(1)!important }
+    .hero .tag{ opacity:1!important }
+    .pin-img img:first-of-type{ opacity:1 }
+    *{ animation-duration:.001s!important }
+  }
+</style>
+</head>
+<body>
+
+<div class="res-ov" id="resOv"></div>
+<aside class="res-panel" id="resPanel" aria-label="Rezervacija stola">
+  <button class="x" id="resClose" aria-label="Zatvori">&times;</button>
+  <h3>Rezervirajte stol</h3>
+  <p class="ph">Trg Dinka Zavorovića 4, Šibenik. Javit ćemo vam se s potvrdom.</p>
+  <form onsubmit="return false">
+    <div class="field"><label>Ime i prezime</label><input type="text" placeholder="Vaše ime" /></div>
+    <div class="field"><label>Broj gostiju</label>
+      <select><option>2 osobe</option><option>3 osobe</option><option>4 osobe</option><option>5 osoba</option><option>6+ osoba</option></select></div>
+    <div class="field"><label>Datum</label><input type="date" /></div>
+    <div class="field"><label>Vrijeme</label>
+      <select><option>18:00</option><option>19:00</option><option>20:00</option><option>21:00</option><option>22:00</option></select></div>
+    <div class="field"><label>Napomena</label><textarea placeholder="Posebne želje, alergije…"></textarea></div>
+    <button class="res-submit">Pošalji upit</button>
+  </form>
+  <p class="res-call">Radije telefonom? <a href="tel:+385954422555">095 4422 555</a></p>
+</aside>
+
+<header class="site" id="header">
+  <a class="brand" href="#top">N<sup>o</sup>4</a>
+  <nav class="main">
+    <div class="nav-links">
+      <a href="#menu">Menu</a>
+      <a href="#story">Priča</a>
+      <a href="#galerija">Galerija</a>
+      <a href="#posjet">Posjet</a>
+    </div>
+    <button class="btn-res" data-open-res>Rezerviraj stol</button>
+    <button class="burger" id="burger" aria-label="Izbornik"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"><img src="https://images.unsplash.com/photo-1432139555190-58524dae6a55?auto=format&fit=crop&w=2000&q=80" alt="Meso sa žara na otvorenoj vatri" /></div>
+    <div class="num-ghost" aria-hidden="true">4</div>
+    <div class="hero-content">
+      <p class="eyebrow">Šibenik · Trg Dinka Zavorovića 4</p>
+      <h1 id="heroH1">
+        <span class="row"><i>Restoran</i></span>
+        <span class="row"><i>N<sup style="font-size:.4em;color:var(--accent)">o</sup> 4</i></span>
+      </h1>
+      <p class="tag" id="heroTag">Riba iz mora. Meso sa žara. Sve ostalo — priča.</p>
+    </div>
+    <div class="scrollcue">Skrolaj<span class="l"></span></div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marq" aria-hidden="true">
+    <div class="marq-track">
+      <span>SA ŽARA <b>·</b> MEDITERANSKI <b>·</b> 4.5 ★ <b>·</b> 527 RECENZIJA <b>·</b> ŠIBENIK <b>·</b> OD MORA DO STOLA <b>·&nbsp;</b></span>
+      <span>SA ŽARA <b>·</b> MEDITERANSKI <b>·</b> 4.5 ★ <b>·</b> 527 RECENZIJA <b>·</b> ŠIBENIK <b>·</b> OD MORA DO STOLA <b>·&nbsp;</b></span>
+    </div>
+  </div>
+
+  <!-- MANIFEST -->
+  <section class="pad manifest">
+    <div class="wrap">
+      <p class="eyebrow reveal">Manifest</p>
+      <p class="big reveal">Ime nam je broj. Bez ukrasa, bez buke — <em>samo ono što je na tanjuru.</em></p>
+      <p class="sm reveal">No. 4 nije ime nego adresa: kućni broj na trgu Dinka Zavorovića, među kamenom šibenske jezgre pod zaštitom UNESCO-a. Kuhamo mediteranski, mislimo suvremeno i serviramo bez pretjerivanja. Vatra, sol, ulje, vrijeme — ostalo prepuštamo sastojku.</p>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="pad" id="menu">
+    <div class="wrap">
+      <div class="sechead reveal"><h2>Menu</h2><span class="idx">N°4 — Sezonski izbor</span></div>
+      <div class="menu-grid">
+        <div class="mcat reveal">
+          <h3>Za početak</h3>
+          <div class="dish"><div class="l"><div class="n">Sirova orada</div><div class="d">Carpaccio orade, ulje s Krke, limun, mladi kapar, morska sol.</div></div><span class="no">01</span></div>
+          <div class="dish"><div class="l"><div class="n">Hobotnica s ražnja</div><div class="d">Nagorena hobotnica, pečeni krumpir, aioli od pečenog češnjaka.</div></div><span class="no">02</span></div>
+          <div class="dish"><div class="l"><div class="n">Buratta &amp; rajčica</div><div class="d">Kremasta buratta, marinirana rajčica, bosiljak, kruh od kvasca.</div></div><span class="no">03</span></div>
+        </div>
+        <div class="mcat reveal">
+          <h3>Sa žara</h3>
+          <div class="dish"><div class="l"><div class="n">Biftek No. 4</div><div class="d">Zreli goveđi biftek na otvorenoj vatri, demi-glace, sezonsko povrće. Naša potpisna ploča.</div></div><span class="no">04</span></div>
+          <div class="dish"><div class="l"><div class="n">Rebra na laganoj vatri</div><div class="d">Svinjska rebra pečena satima, glazura od domaćeg meda i ružmarina.</div></div><span class="no">05</span></div>
+          <div class="dish"><div class="l"><div class="n">Riba dana</div><div class="d">Cijela bijela riba s tržnice, žar, blitva na dalmatinski, djevičansko ulje.</div></div><span class="no">06</span></div>
+        </div>
+        <div class="mcat reveal">
+          <h3>Tjestenina &amp; rižoto</h3>
+          <div class="dish"><div class="l"><div class="n">Crni rižoto</div><div class="d">Sipa, sipino crnilo, malo bijelog vina, kap ulja na kraju.</div></div><span class="no">07</span></div>
+          <div class="dish"><div class="l"><div class="n">Njoki sa škampima</div><div class="d">Domaći njoki, škampi iz kanala, cherry rajčica, maslac s pelinom.</div></div><span class="no">08</span></div>
+        </div>
+        <div class="mcat reveal">
+          <h3>Za kraj</h3>
+          <div class="dish"><div class="l"><div class="n">Rožata</div><div class="d">Klasična dalmatinska krema s karamelom i notom rožolina.</div></div><span class="no">09</span></div>
+          <div class="dish"><div class="l"><div class="n">Smokva &amp; med</div><div class="d">Pečena smokva, domaći med, mascarpone, prepečeni bademi.</div></div><span class="no">10</span></div>
+          <p class="menu-note">Menu prati tržnicu i sezonu. Pitajte za današnju ponudu i preporuku vina.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PINNED STORY -->
+  <section class="story-pin" id="story">
+    <div class="pin-stage">
+      <div class="wrap"><div class="pin-inner">
+        <div class="pin-text">
+          <div class="pin-num">N<sup>o</sup>4</div>
+          <h2>Adresa,<br>ne ime.</h2>
+          <div class="pin-step" data-step="0">
+            <p>No. 4 nastao je iz jednostavne ideje: <strong>mjesto koje pamtiš po broju vrata.</strong> Smješten na trgu Dinka Zavorovića, među kamenom šibenske jezgre, spaja mir stare gradske jezgre s kuhinjom koja gleda naprijed.</p>
+          </div>
+          <div class="pin-step" data-step="1">
+            <p>Radimo s ribarima iz kanala, mesarima koji znaju što je zrenje, i poljoprivrednicima sa zaleđa. <strong>Kratak put od izvora do tanjura</strong> nije marketing — to je jedini način na koji znamo kuhati.</p>
+          </div>
+          <div class="pin-step" data-step="2">
+            <p>Vatra je u središtu. Žar, dim i strpljenje pretvaraju nekoliko sastojaka u nešto što se pamti. <strong>Suvremeno, čisto, bez viška</strong> — onako kako i ime sugerira.</p>
+          </div>
+        </div>
+        <div class="pin-img">
+          <img class="active" data-img="0" src="https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?auto=format&fit=crop&w=1100&q=80" alt="Kamene ulice Šibenika" />
+          <img data-img="1" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1100&q=80" alt="Moderno serviran tanjur" />
+          <img data-img="2" src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1100&q=80" alt="Meso sa žara" />
+        </div>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="pad" id="galerija">
+    <div class="wrap">
+      <div class="sechead reveal"><h2>Atmosfera</h2><span class="idx">N°4 — Galerija</span></div>
+      <div class="gal">
+        <figure class="g1 reveal"><img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1300&q=80" alt="Topli minimalistički interijer" /><figcaption>Interijer</figcaption></figure>
+        <figure class="g2 reveal"><img src="https://images.unsplash.com/photo-1559561853-08451507cbe7?auto=format&fit=crop&w=900&q=80" alt="Plated jelo" /><figcaption>Detalj</figcaption></figure>
+        <figure class="g3 reveal"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=80" alt="Mediteransko jelo" /><figcaption>Mediteran</figcaption></figure>
+        <figure class="g4 reveal"><img src="https://images.unsplash.com/photo-1498654896293-37aacf113fd9?auto=format&fit=crop&w=1300&q=80" alt="Jadransko more" /><figcaption>Jadran</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIT -->
+  <section class="pad" id="posjet">
+    <div class="wrap">
+      <div class="sechead reveal"><h2>Posjet</h2><span class="idx">N°4 — Lokacija</span></div>
+      <div class="visit">
+        <div class="col left reveal">
+          <h3>Gdje smo</h3>
+          <p class="big">Trg Dinka<br>Zavorovića 4<br>22000 Šibenik</p>
+          <p>U srcu kamene jezgre, nekoliko koraka od katedrale sv. Jakova.</p>
+          <a class="lnk" href="https://maps.google.com/maps?q=Restoran+No+4+Sibenik" target="_blank" rel="noopener">Otvori u kartama →</a>
+          <h3 style="margin-top:48px">Kontakt</h3>
+          <p class="big" style="font-size:30px"><a href="tel:+385954422555">095 4422 555</a></p>
+          <p><a href="mailto:restoranno4@gmail.com" style="border-bottom:1px solid var(--line)">restoranno4@gmail.com</a></p>
+        </div>
+        <div class="col right reveal">
+          <h3>Radno vrijeme</h3>
+          <ul class="hours">
+            <li><span>Ponedjeljak</span><span>Zatvoreno</span></li>
+            <li><span>Utorak – Četvrtak</span><span>12:00 – 23:00</span></li>
+            <li><span>Petak – Subota</span><span>12:00 – 00:00</span></li>
+            <li><span>Nedjelja</span><span>12:00 – 22:00</span></li>
+          </ul>
+          <p style="margin-top:18px;font-size:15px">Kuhinja prima narudžbe do sat vremena prije zatvaranja. Za veće grupe preporučujemo raniju rezervaciju.</p>
+          <button class="btn-res" data-open-res style="margin-top:28px">Rezerviraj stol</button>
+        </div>
+      </div>
+      <div class="mapframe reveal">
+        <iframe src="https://maps.google.com/maps?q=Restoran+No+4+Sibenik&output=embed" loading="lazy" title="Karta — Restoran No. 4, Šibenik"></iframe>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-brand">N<sup>o</sup>4</div>
+    <div class="foot-row">
+      <div class="foot-c">
+        <div class="lab">Restoran No. 4</div>
+        <a href="https://maps.google.com/maps?q=Restoran+No+4+Sibenik" target="_blank" rel="noopener">Trg Dinka Zavorovića 4, Šibenik</a>
+        <a href="tel:+385954422555">095 4422 555</a>
+        <a href="mailto:restoranno4@gmail.com">restoranno4@gmail.com</a>
+      </div>
+      <div class="foot-c">
+        <div class="lab">Posjetite</div>
+        <a href="#menu">Menu</a>
+        <a href="#story">Naša priča</a>
+        <a href="#posjet">Lokacija &amp; radno vrijeme</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 Restoran No. 4 · Šibenik</span>
+      <span>4.5 ★ / 527 recenzija · Moderni mediteranski</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var header=document.getElementById('header');
+  function onScroll(){ if(window.scrollY>60) header.classList.add('scrolled'); else header.classList.remove('scrolled'); }
+  window.addEventListener('scroll',onScroll); onScroll();
+
+  var burger=document.getElementById('burger');
+  burger&&burger.addEventListener('click',function(){header.classList.toggle('open-m');});
+  document.querySelectorAll('.nav-links a').forEach(function(a){a.addEventListener('click',function(){header.classList.remove('open-m');});});
+
+  var panel=document.getElementById('resPanel'), ov=document.getElementById('resOv');
+  function openRes(){ panel.classList.add('open'); ov.classList.add('open'); document.body.style.overflow='hidden'; }
+  function closeRes(){ panel.classList.remove('open'); ov.classList.remove('open'); document.body.style.overflow=''; }
+  document.querySelectorAll('[data-open-res]').forEach(function(b){b.addEventListener('click',openRes);});
+  document.getElementById('resClose').addEventListener('click',closeRes);
+  ov.addEventListener('click',closeRes);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeRes();});
+
+  if(reduce){
+    document.querySelectorAll('.reveal').forEach(function(el){el.style.opacity=1;el.style.transform='none';});
+    return;
+  }
+
+  var lenis=new Lenis({duration:1.2,easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t));},smoothWheel:true});
+  function raf(t){lenis.raf(t);requestAnimationFrame(raf);} requestAnimationFrame(raf);
+  gsap.registerPlugin(ScrollTrigger);
+  lenis.on('scroll',ScrollTrigger.update);
+
+  // Hero: zoom-on-load + line mask reveal
+  gsap.to('.hero-bg img', {scale:1, duration:2.2, ease:'power2.out'});
+  gsap.from('.hero h1 .row i', {yPercent:115, duration:1.05, stagger:.12, ease:'power3.out', delay:.35});
+  gsap.to('#heroTag', {opacity:1, y:0, duration:1, delay:1.1, ease:'power2.out'});
+  gsap.set('#heroTag',{y:16});
+  gsap.from('.hero .eyebrow',{opacity:0,y:14,duration:.9,delay:.25,ease:'power2.out'});
+
+  // Generic reveals
+  gsap.utils.toArray('.reveal').forEach(function(el){
+    gsap.to(el,{opacity:1,y:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 88%'}});
+  });
+
+  // Pinned story with image crossfade
+  if(window.innerWidth>900){
+    var imgs=document.querySelectorAll('.pin-img img');
+    var steps=document.querySelectorAll('.pin-step');
+    var stage=document.querySelector('.pin-stage');
+    ScrollTrigger.create({
+      trigger:'.story-pin', start:'top top', end:'+=200%', pin:'.pin-stage', scrub:true,
+      onUpdate:function(self){
+        var idx = Math.min(2, Math.floor(self.progress*3));
+        imgs.forEach(function(im,i){ im.classList.toggle('active', i===idx); });
+        steps.forEach(function(s,i){ gsap.to(s,{opacity:i===idx?1:.28,duration:.4}); });
+      }
+    });
+    gsap.set('.pin-step',{opacity:.28}); gsap.set('.pin-step:first-of-type',{opacity:1});
+  }
+})();
+</script>
+</body>
+</html>
