@@ -3,8 +3,22 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Restoran No. 4 — Šibenik · Moderni mediteranski restoran</title>
-<meta name="description" content="Restoran No. 4 — moderni mediteranski restoran u kamenoj jezgri Šibenika. Trg Dinka Zavorovića 4. Meso sa žara, riba iz mora, vino s brda. Rezervirajte stol." />
+<title>Restoran No4 — steak i riba, Šibenik | stara jezgra</title>
+<meta name="description" content="Restoran No4 — steak i riba u skrivenoj uličici stare jezgre Šibenika, Trg Dinka Zavorovića 4. Otvoreno svaki dan 11–23. Rezervacije: 095 442 2555." />
+<link rel="canonical" href="https://artme-nx.github.io/restoran-no4-v2/" />
+<meta property="og:type" content="restaurant" />
+<meta property="og:locale" content="hr_HR" />
+<meta property="og:site_name" content="Restoran No4" />
+<meta property="og:title" content="Restoran No4 — steak i riba, Šibenik" />
+<meta property="og:description" content="Steak i riba u skrivenoj uličici stare jezgre Šibenika, nasuprot crkve sv. Duha. Otvoreno svaki dan 11–23." />
+<meta property="og:url" content="https://artme-nx.github.io/restoran-no4-v2/" />
+<meta property="og:image" content="https://artme-nx.github.io/restoran-no4-v2/img/no4-terasa-kalelarga-sibenik.webp" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Restoran No4 — steak i riba, Šibenik" />
+<meta name="twitter:description" content="Steak i riba u skrivenoj uličici stare jezgre Šibenika. Otvoreno svaki dan 11–23." />
+<meta name="twitter:image" content="https://artme-nx.github.io/restoran-no4-v2/img/no4-terasa-kalelarga-sibenik.webp" />
+<link rel="icon" href="favicon.png" type="image/png" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet" />
@@ -46,6 +60,12 @@
   .btn-res:hover{ opacity:.85 }
   .burger{ display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:6px }
   .burger span{ width:24px; height:1.5px; background:var(--paper); transition:.3s }
+  /* Nad herojem (svijetla kamena fotografija) navigacija treba jači kontrast */
+  header.site:not(.scrolled) .brand{ text-shadow:0 1px 14px rgba(0,0,0,.6) }
+  header.site:not(.scrolled) nav.main a{ color:rgba(239,234,224,.88); text-shadow:0 1px 12px rgba(0,0,0,.6) }
+  header.site:not(.scrolled) nav.main a:hover{ color:var(--paper) }
+  header.site.open-m:not(.scrolled) nav.main a{ color:var(--soft); text-shadow:none }
+  header.site.open-m:not(.scrolled) nav.main a:hover{ color:var(--paper) }
 
   /* HERO */
   .hero{ position:relative; height:100vh; min-height:640px; overflow:hidden;
@@ -53,7 +73,7 @@
   .hero-bg{ position:absolute; inset:0; z-index:0 }
   .hero-bg img{ width:100%; height:100%; object-fit:cover; transform:scale(1.18) }
   .hero-bg::after{ content:''; position:absolute; inset:0;
-    background:radial-gradient(120% 90% at 50% 40%, rgba(20,20,20,.35), rgba(20,20,20,.82)) }
+    background:radial-gradient(120% 90% at 50% 40%, rgba(20,20,20,.5), rgba(20,20,20,.88)) }
   .hero-content{ position:relative; z-index:2; padding:0 24px; width:100% }
   .hero .eyebrow{ color:rgba(239,234,224,.7); margin-bottom:28px }
   .hero h1{ font-size:clamp(54px,11vw,180px); color:var(--paper); letter-spacing:-.04em; line-height:.92 }
@@ -107,7 +127,8 @@
   .dish{ display:flex; justify-content:space-between; gap:30px; margin-bottom:26px; align-items:baseline }
   .dish .l .n{ font-family:var(--font-display); font-size:21px; color:var(--paper); font-weight:500 }
   .dish .l .d{ font-family:var(--font-body); font-size:15.5px; color:var(--soft); margin-top:5px; max-width:40ch; line-height:1.55 }
-  .dish .no{ font-family:var(--font-display); font-size:13px; color:var(--soft); flex:0 0 auto }
+  .dish .no{ font-family:var(--font-display); font-size:14px; font-weight:500; color:var(--accent);
+    flex:0 0 auto; white-space:nowrap; letter-spacing:.01em }
   .menu-note{ font-family:var(--font-body); font-style:italic; font-size:15px; color:var(--soft); margin-top:14px }
 
   /* PINNED STORY */
@@ -209,7 +230,141 @@
     .pin-img img:first-of-type{ opacity:1 }
     *{ animation-duration:.001s!important }
   }
+
+  /* FAQ */
+  .faq-list{ border-top:1px solid var(--line-soft) }
+  .faq-item{ border-bottom:1px solid var(--line-soft); padding:28px 0 }
+  .faq-item h3{ font-family:var(--font-display); font-size:20px; color:var(--paper); margin-bottom:9px; font-weight:500 }
+  .faq-item p{ font-family:var(--font-body); color:var(--text); max-width:70ch; font-size:17px }
+  .faq-item a{ color:var(--accent); border-bottom:1px solid var(--accent) }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "@id": "https://artme-nx.github.io/restoran-no4-v2/#restaurant",
+  "name": "Restoran No. 4",
+  "image": ["https://artme-nx.github.io/restoran-no4-v2/img/no4-terasa-kalelarga-sibenik.webp"],
+  "url": "https://artme-nx.github.io/restoran-no4-v2/",
+  "telephone": "+385954422555",
+  "email": "restoranno4@gmail.com",
+  "priceRange": "€€",
+  "servesCuisine": ["Steak", "Riba i plodovi mora", "Dalmatinska", "Mediteranska"],
+  "currenciesAccepted": "EUR",
+  "paymentAccepted": "Gotovina, kreditne kartice, debitne kartice",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Trg Dinka Zavorovića 4",
+    "addressLocality": "Šibenik",
+    "postalCode": "22000",
+    "addressRegion": "Šibensko-kninska županija",
+    "addressCountry": "HR"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 43.7352902, "longitude": 15.8915463 },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "11:00",
+      "closes": "23:00"
+    }
+  ],
+  "acceptsReservations": "True",
+  "publicAccess": true,
+  "isAccessibleForFree": false,
+  "amenityFeature": [
+    { "@type": "LocationFeatureSpecification", "name": "Terasa", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Pristupačno invalidskim kolicima", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Psi dopušteni", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Prikladno za djecu", "value": true }
+  ],
+  "hasMenu": { "@id": "https://artme-nx.github.io/restoran-no4-v2/#menu" },
+  "sameAs": [
+    "https://maps.google.com/?cid=7409364921369913322",
+    "https://www.tripadvisor.com/Restaurant_Review-g295375-d8606988-Reviews-Restoran_No_4-Sibenik_Sibenik_Knin_County_Dalmatia.html",
+    "https://www.facebook.com/restoranNo4/",
+    "https://www.instagram.com/restoranno4/"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Menu",
+  "@id": "https://artme-nx.github.io/restoran-no4-v2/#menu",
+  "name": "Jelovnik — Restoran No4",
+  "inLanguage": "hr",
+  "hasMenuSection": [
+    {
+      "@type": "MenuSection",
+      "name": "Predjela",
+      "hasMenuItem": [
+        { "@type": "MenuItem", "name": "Selekcija domaćih sireva", "description": "Četiri dalmatinska tradicionalna sira.", "offers": { "@type": "Offer", "price": "16.30", "priceCurrency": "EUR" } },
+        { "@type": "MenuItem", "name": "Burrata na posteljici od svježe salate", "offers": { "@type": "Offer", "price": "14.30", "priceCurrency": "EUR" } },
+        { "@type": "MenuItem", "name": "Hladna plata", "description": "Pršut, skuta, tvrdi sirevi, džem od smokava, orasi.", "offers": { "@type": "Offer", "price": "17.70", "priceCurrency": "EUR" } },
+        { "@type": "MenuItem", "name": "Carpaccio od bifteka", "description": "Rukola, tvrdi sir u lističima, preljev.", "offers": { "@type": "Offer", "price": "18.00", "priceCurrency": "EUR" } },
+        { "@type": "MenuItem", "name": "Pašteta od pršuta", "description": "Zapečeni kruh, rotkvice, masline, cherry rajčice.", "offers": { "@type": "Offer", "price": "13.60", "priceCurrency": "EUR" } }
+      ]
+    },
+    {
+      "@type": "MenuSection",
+      "name": "Hladna riblja jela",
+      "hasMenuItem": [
+        { "@type": "MenuItem", "name": "Tuna carpaccio", "description": "Tuna, sezamovo ulje i soja, rikola.", "offers": { "@type": "Offer", "price": "18.30", "priceCurrency": "EUR" } },
+        { "@type": "MenuItem", "name": "Hladni riblji pijat", "description": "Tartar od tune, marinirane kozice, slani inćuni, namaz od maslina.", "offers": { "@type": "Offer", "price": "18.40", "priceCurrency": "EUR" } },
+        { "@type": "MenuItem", "name": "Tuna tartar s nori tempurom", "offers": { "@type": "Offer", "price": "18.30", "priceCurrency": "EUR" } },
+        { "@type": "MenuItem", "name": "Dagnje na buzaru", "offers": { "@type": "Offer", "price": "15.50", "priceCurrency": "EUR" } },
+        { "@type": "MenuItem", "name": "Salata hobotnica", "offers": { "@type": "Offer", "price": "19.80", "priceCurrency": "EUR" } }
+      ]
+    },
+    {
+      "@type": "MenuSection",
+      "name": "Glavna jela — meso i steak",
+      "hasMenuItem": [
+        { "@type": "MenuItem", "name": "Tomahawk steak", "offers": { "@type": "Offer", "price": "43.80", "priceCurrency": "EUR" } },
+        { "@type": "MenuItem", "name": "T-Bone steak sa žara", "offers": { "@type": "Offer", "price": "36.90", "priceCurrency": "EUR" } },
+        { "@type": "MenuItem", "name": "Biftek steak s polpetom od krumpira, pečenim tikvicama i umakom od zelenog papra", "offers": { "@type": "Offer", "price": "36.90", "priceCurrency": "EUR" } },
+        { "@type": "MenuItem", "name": "Pfeffersteak s polpetom od krumpira i pečenim tikvicama", "offers": { "@type": "Offer", "price": "36.90", "priceCurrency": "EUR" } },
+        { "@type": "MenuItem", "name": "Tagliata biftek", "description": "Rikola, grana padano.", "offers": { "@type": "Offer", "price": "35.80", "priceCurrency": "EUR" } },
+        { "@type": "MenuItem", "name": "Ribeye steak s polpetom od krumpira, pečenim tikvicama i umakom od papra", "offers": { "@type": "Offer", "price": "32.50", "priceCurrency": "EUR" } },
+        { "@type": "MenuItem", "name": "Janjeća koljenica sous vide", "description": "Krema od pečenog krumpira, sotirano povrće.", "offers": { "@type": "Offer", "price": "33.90", "priceCurrency": "EUR" } },
+        { "@type": "MenuItem", "name": "Rolice piletine punjene tikvicama i mozzarelom", "description": "Umotane u slaninu, zapečena palenta, umak pesto.", "offers": { "@type": "Offer", "price": "19.60", "priceCurrency": "EUR" } },
+        { "@type": "MenuItem", "name": "Pašticada s domaćim njokima", "offers": { "@type": "Offer", "price": "19.60", "priceCurrency": "EUR" } }
+      ]
+    },
+    {
+      "@type": "MenuSection",
+      "name": "Dnevna ponuda za ručak",
+      "hasMenuItem": [
+        { "@type": "MenuItem", "name": "Skradinski rižoto", "description": "Tradicionalni teleći rižoto iz Skradina, kuhan polako.", "offers": { "@type": "Offer", "price": "18.80", "priceCurrency": "EUR" } },
+        { "@type": "MenuItem", "name": "Sipa s bobom", "offers": { "@type": "Offer", "price": "19.20", "priceCurrency": "EUR" } },
+        { "@type": "MenuItem", "name": "Tjestenina bolonjez", "offers": { "@type": "Offer", "price": "15.70", "priceCurrency": "EUR" } },
+        { "@type": "MenuItem", "name": "Gulaš No4 s bižima i krumpirom", "offers": { "@type": "Offer", "price": "15.70", "priceCurrency": "EUR" } },
+        { "@type": "MenuItem", "name": "Srdele s grilla sa svježom salatom", "offers": { "@type": "Offer", "price": "14.60", "priceCurrency": "EUR" } }
+      ]
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://artme-nx.github.io/restoran-no4-v2/#faq",
+  "mainEntity": [
+    { "@type": "Question", "name": "Kada je Restoran No4 otvoren?", "acceptedAnswer": { "@type": "Answer", "text": "Otvoreni smo svaki dan od 11:00 do 23:00, od ponedjeljka do nedjelje. Kuhinja radi kroz cijeli dan, pa kod nas možete i ručati i večerati." } },
+    { "@type": "Question", "name": "Gdje se točno nalazi No4?", "acceptedAnswer": { "@type": "Answer", "text": "Na Trgu Dinka Zavorovića 4 u staroj jezgri Šibenika, u uličici uz gornju Kalelargu. Terasa je na malom trgu nasuprot crkve sv. Duha, nekoliko minuta hoda od katedrale sv. Jakova." } },
+    { "@type": "Question", "name": "Treba li rezervirati stol?", "acceptedAnswer": { "@type": "Answer", "text": "Za večeru preporučujemo rezervaciju. Stol rezervirate pozivom na 095 442 2555 ili e-mailom na restoranno4@gmail.com." } },
+    { "@type": "Question", "name": "Gdje parkirati u blizini?", "acceptedAnswer": { "@type": "Answer", "text": "Stara jezgra Šibenika je pješačka zona i parkirno mjesto se teško nalazi. U blizini su javna parkirališta pod naplatom i garaža pod naplatom, pa do restorana dolazite pješice." } },
+    { "@type": "Question", "name": "Imate li terasu?", "acceptedAnswer": { "@type": "Answer", "text": "Da. Terasa je na malom trgu ispred crkve sv. Duha, u hladu kamenih zidova i suncobrana. Sjedi se i u uličici uz sam ulaz." } },
+    { "@type": "Question", "name": "Primate li kartice?", "acceptedAnswer": { "@type": "Answer", "text": "Da, primamo kreditne i debitne kartice te beskontaktno plaćanje mobitelom. Naravno, i gotovinu." } },
+    { "@type": "Question", "name": "Je li restoran prikladan za djecu?", "acceptedAnswer": { "@type": "Answer", "text": "Jest, djeca su dobrodošla. Za jela izvan jelovnika i porcije za najmlađe pitajte osoblje." } },
+    { "@type": "Question", "name": "Primate li pse?", "acceptedAnswer": { "@type": "Answer", "text": "Da, psi su dobrodošli na terasi." } },
+    { "@type": "Question", "name": "Je li objekt pristupačan invalidskim kolicima?", "acceptedAnswer": { "@type": "Answer", "text": "Prostor za sjedenje i parkiralište pristupačni su osobama u invalidskim kolicima." } },
+    { "@type": "Question", "name": "Koliko košta jelo kod vas?", "acceptedAnswer": { "@type": "Answer", "text": "Predjela su oko 14 do 20 €, dnevna ponuda za ručak od 14,60 €, a steakovi od 32,50 € do 43,80 € za tomahawk. Cijene su iz jelovnika restorana." } }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -228,17 +383,18 @@
     <div class="field"><label>Napomena</label><textarea placeholder="Posebne želje, alergije…"></textarea></div>
     <button class="res-submit">Pošalji upit</button>
   </form>
-  <p class="res-call">Radije telefonom? <a href="tel:+385954422555">095 4422 555</a></p>
+  <p class="res-call">Radije telefonom? <a href="tel:+385954422555">095 442 2555</a></p>
 </aside>
 
 <header class="site" id="header">
   <a class="brand" href="#top">N<sup>o</sup>4</a>
   <nav class="main">
     <div class="nav-links">
-      <a href="#menu">Menu</a>
+      <a href="#menu">Jelovnik</a>
       <a href="#story">Priča</a>
       <a href="#galerija">Galerija</a>
       <a href="#posjet">Posjet</a>
+      <a href="#faq">Info</a>
     </div>
     <button class="btn-res" data-open-res>Rezerviraj stol</button>
     <button class="burger" id="burger" aria-label="Izbornik"><span></span><span></span><span></span></button>
@@ -249,7 +405,7 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-bg"><img src="https://images.unsplash.com/photo-1432139555190-58524dae6a55?auto=format&fit=crop&w=2000&q=80" alt="Meso sa žara na otvorenoj vatri" /></div>
+    <div class="hero-bg"><img src="img/no4-terasa-kalelarga-sibenik.webp" width="1600" height="1066" fetchpriority="high" alt="Stolovi restorana No4 u kamenoj uličici stare jezgre Šibenika, u dnu zvonik crkve sv. Duha" /></div>
     <div class="num-ghost" aria-hidden="true">4</div>
     <div class="hero-content">
       <p class="eyebrow">Šibenik · Trg Dinka Zavorovića 4</p>
@@ -257,7 +413,7 @@
         <span class="row"><i>Restoran</i></span>
         <span class="row"><i>N<sup style="font-size:.4em;color:var(--accent)">o</sup> 4</i></span>
       </h1>
-      <p class="tag" id="heroTag">Riba iz mora. Meso sa žara. Sve ostalo — priča.</p>
+      <p class="tag" id="heroTag">Okusi se ne rađaju. Okusi se stvaraju.</p>
     </div>
     <div class="scrollcue">Skrolaj<span class="l"></span></div>
   </section>
@@ -265,8 +421,8 @@
   <!-- MARQUEE -->
   <div class="marq" aria-hidden="true">
     <div class="marq-track">
-      <span>SA ŽARA <b>·</b> MEDITERANSKI <b>·</b> 4.5 ★ <b>·</b> 527 RECENZIJA <b>·</b> ŠIBENIK <b>·</b> OD MORA DO STOLA <b>·&nbsp;</b></span>
-      <span>SA ŽARA <b>·</b> MEDITERANSKI <b>·</b> 4.5 ★ <b>·</b> 527 RECENZIJA <b>·</b> ŠIBENIK <b>·</b> OD MORA DO STOLA <b>·&nbsp;</b></span>
+      <span>STEAK <b>·</b> RIBA <b>·</b> 4,6 ★ <b>·</b> 969 RECENZIJA <b>·</b> ŠIBENIK <b>·</b> GORNJA KALELARGA <b>·</b> OTVORENO 11–23 <b>·&nbsp;</b></span>
+      <span>STEAK <b>·</b> RIBA <b>·</b> 4,6 ★ <b>·</b> 969 RECENZIJA <b>·</b> ŠIBENIK <b>·</b> GORNJA KALELARGA <b>·</b> OTVORENO 11–23 <b>·&nbsp;</b></span>
     </div>
   </div>
 
@@ -274,38 +430,52 @@
   <section class="pad manifest">
     <div class="wrap">
       <p class="eyebrow reveal">Manifest</p>
-      <p class="big reveal">Ime nam je broj. Bez ukrasa, bez buke — <em>samo ono što je na tanjuru.</em></p>
-      <p class="sm reveal">No. 4 nije ime nego adresa: kućni broj na trgu Dinka Zavorovića, među kamenom šibenske jezgre pod zaštitom UNESCO-a. Kuhamo mediteranski, mislimo suvremeno i serviramo bez pretjerivanja. Vatra, sol, ulje, vrijeme — ostalo prepuštamo sastojku.</p>
+      <p class="big reveal">Ime nam je broj. Neke se adrese ne pronalaze slučajno, nego se <em>otkrivaju.</em></p>
+      <p class="sm reveal">No4 nije ime nego adresa: kućni broj na Trgu Dinka Zavorovića, u uličici uz gornju Kalelargu. Stolovi stoje na malom trgu nasuprot crkve sv. Duha, među kamenom stare jezgre. Na žaru su steakovi, uz njih dnevna riba i plodovi mora s Jadrana.</p>
     </div>
   </section>
 
   <!-- MENU -->
   <section class="pad" id="menu">
     <div class="wrap">
-      <div class="sechead reveal"><h2>Menu</h2><span class="idx">N°4 — Sezonski izbor</span></div>
+      <div class="sechead reveal"><h2>Jelovnik</h2><span class="idx">N°4 — steak &amp; riba</span></div>
       <div class="menu-grid">
         <div class="mcat reveal">
-          <h3>Za početak</h3>
-          <div class="dish"><div class="l"><div class="n">Sirova orada</div><div class="d">Carpaccio orade, ulje s Krke, limun, mladi kapar, morska sol.</div></div><span class="no">01</span></div>
-          <div class="dish"><div class="l"><div class="n">Hobotnica s ražnja</div><div class="d">Nagorena hobotnica, pečeni krumpir, aioli od pečenog češnjaka.</div></div><span class="no">02</span></div>
-          <div class="dish"><div class="l"><div class="n">Buratta &amp; rajčica</div><div class="d">Kremasta buratta, marinirana rajčica, bosiljak, kruh od kvasca.</div></div><span class="no">03</span></div>
+          <h3>Predjela</h3>
+          <div class="dish"><div class="l"><div class="n">Carpaccio od bifteka</div><div class="d">Rukola, tvrdi sir u lističima, preljev.</div></div><span class="no">18,00 €</span></div>
+          <div class="dish"><div class="l"><div class="n">Hladna plata</div><div class="d">Pršut, skuta, tvrdi sirevi, džem od smokava, orasi.</div></div><span class="no">17,70 €</span></div>
+          <div class="dish"><div class="l"><div class="n">Selekcija domaćih sireva</div><div class="d">Četiri dalmatinska tradicionalna sira.</div></div><span class="no">16,30 €</span></div>
+          <div class="dish"><div class="l"><div class="n">Burrata na posteljici od svježe salate</div></div><span class="no">14,30 €</span></div>
+          <div class="dish"><div class="l"><div class="n">Pašteta od pršuta</div><div class="d">Zapečeni kruh, rotkvice, masline, cherry rajčice.</div></div><span class="no">13,60 €</span></div>
         </div>
         <div class="mcat reveal">
-          <h3>Sa žara</h3>
-          <div class="dish"><div class="l"><div class="n">Biftek No. 4</div><div class="d">Zreli goveđi biftek na otvorenoj vatri, demi-glace, sezonsko povrće. Naša potpisna ploča.</div></div><span class="no">04</span></div>
-          <div class="dish"><div class="l"><div class="n">Rebra na laganoj vatri</div><div class="d">Svinjska rebra pečena satima, glazura od domaćeg meda i ružmarina.</div></div><span class="no">05</span></div>
-          <div class="dish"><div class="l"><div class="n">Riba dana</div><div class="d">Cijela bijela riba s tržnice, žar, blitva na dalmatinski, djevičansko ulje.</div></div><span class="no">06</span></div>
+          <h3>Hladna riblja jela</h3>
+          <div class="dish"><div class="l"><div class="n">Salata hobotnica</div></div><span class="no">19,80 €</span></div>
+          <div class="dish"><div class="l"><div class="n">Hladni riblji pijat</div><div class="d">Tartar od tune, marinirane kozice, slani inćuni, namaz od maslina.</div></div><span class="no">18,40 €</span></div>
+          <div class="dish"><div class="l"><div class="n">Tuna carpaccio</div><div class="d">Tuna, sezamovo ulje i soja, rikola.</div></div><span class="no">18,30 €</span></div>
+          <div class="dish"><div class="l"><div class="n">Tuna tartar s nori tempurom</div></div><span class="no">18,30 €</span></div>
+          <div class="dish"><div class="l"><div class="n">Dagnje na buzaru</div></div><span class="no">15,50 €</span></div>
         </div>
         <div class="mcat reveal">
-          <h3>Tjestenina &amp; rižoto</h3>
-          <div class="dish"><div class="l"><div class="n">Crni rižoto</div><div class="d">Sipa, sipino crnilo, malo bijelog vina, kap ulja na kraju.</div></div><span class="no">07</span></div>
-          <div class="dish"><div class="l"><div class="n">Njoki sa škampima</div><div class="d">Domaći njoki, škampi iz kanala, cherry rajčica, maslac s pelinom.</div></div><span class="no">08</span></div>
+          <h3>Glavna jela · meso i steak</h3>
+          <div class="dish"><div class="l"><div class="n">Tomahawk steak</div></div><span class="no">43,80 €</span></div>
+          <div class="dish"><div class="l"><div class="n">T-Bone steak sa žara</div></div><span class="no">36,90 €</span></div>
+          <div class="dish"><div class="l"><div class="n">Biftek steak</div><div class="d">Polpet od krumpira, pečene tikvice, umak od zelenog papra.</div></div><span class="no">36,90 €</span></div>
+          <div class="dish"><div class="l"><div class="n">Pfeffersteak</div><div class="d">Polpet od krumpira, pečene tikvice.</div></div><span class="no">36,90 €</span></div>
+          <div class="dish"><div class="l"><div class="n">Tagliata biftek</div><div class="d">Rikola, grana padano.</div></div><span class="no">35,80 €</span></div>
+          <div class="dish"><div class="l"><div class="n">Ribeye steak</div><div class="d">Polpet od krumpira, pečene tikvice, umak od papra.</div></div><span class="no">32,50 €</span></div>
+          <div class="dish"><div class="l"><div class="n">Janjeća koljenica sous vide</div><div class="d">Krema od pečenog krumpira, sotirano povrće.</div></div><span class="no">33,90 €</span></div>
+          <div class="dish"><div class="l"><div class="n">Rolice piletine</div><div class="d">Punjene tikvicama i mozzarelom, umotane u slaninu, zapečena palenta, umak pesto.</div></div><span class="no">19,60 €</span></div>
+          <div class="dish"><div class="l"><div class="n">Pašticada s domaćim njokima</div></div><span class="no">19,60 €</span></div>
         </div>
         <div class="mcat reveal">
-          <h3>Za kraj</h3>
-          <div class="dish"><div class="l"><div class="n">Rožata</div><div class="d">Klasična dalmatinska krema s karamelom i notom rožolina.</div></div><span class="no">09</span></div>
-          <div class="dish"><div class="l"><div class="n">Smokva &amp; med</div><div class="d">Pečena smokva, domaći med, mascarpone, prepečeni bademi.</div></div><span class="no">10</span></div>
-          <p class="menu-note">Menu prati tržnicu i sezonu. Pitajte za današnju ponudu i preporuku vina.</p>
+          <h3>Dnevna ponuda za ručak</h3>
+          <div class="dish"><div class="l"><div class="n">Sipa s bobom</div></div><span class="no">19,20 €</span></div>
+          <div class="dish"><div class="l"><div class="n">Skradinski rižoto</div><div class="d">Tradicionalni teleći rižoto iz Skradina, kuhan polako.</div></div><span class="no">18,80 €</span></div>
+          <div class="dish"><div class="l"><div class="n">Tjestenina bolonjez</div></div><span class="no">15,70 €</span></div>
+          <div class="dish"><div class="l"><div class="n">Gulaš No4 s bižima i krumpirom</div></div><span class="no">15,70 €</span></div>
+          <div class="dish"><div class="l"><div class="n">Srdele s grilla sa svježom salatom</div></div><span class="no">14,60 €</span></div>
+          <p class="menu-note">Izbor iz jelovnika. Gosti na Googleu najčešće izdvajaju hobotnicu ispod peke, tuna steak i riblju platu. Za dnevnu ponudu i preporuku vina pitajte osoblje.</p>
         </div>
       </div>
     </div>
@@ -319,19 +489,19 @@
           <div class="pin-num">N<sup>o</sup>4</div>
           <h2>Adresa,<br>ne ime.</h2>
           <div class="pin-step" data-step="0">
-            <p>No. 4 nastao je iz jednostavne ideje: <strong>mjesto koje pamtiš po broju vrata.</strong> Smješten na trgu Dinka Zavorovića, među kamenom šibenske jezgre, spaja mir stare gradske jezgre s kuhinjom koja gleda naprijed.</p>
+            <p>No4 je <strong>mjesto koje pamtite po broju vrata.</strong> Uličica uz gornju Kalelargu, nekoliko stolova uz kameni zid, pa mali trg na kojem se otvara renesansna crkva sv. Duha. Katedrala sv. Jakova, upisana na UNESCO-ov popis svjetske baštine, udaljena je nekoliko minuta hoda.</p>
           </div>
           <div class="pin-step" data-step="1">
-            <p>Radimo s ribarima iz kanala, mesarima koji znaju što je zrenje, i poljoprivrednicima sa zaleđa. <strong>Kratak put od izvora do tanjura</strong> nije marketing — to je jedini način na koji znamo kuhati.</p>
+            <p>Na žaru su <strong>tomahawk, T-bone, ribeye i biftek.</strong> Uz njih tuna steak, dagnje na buzaru, riblja plata i hobotnica. Uz ručak ide dnevna ponuda: skradinski rižoto, pašticada s domaćim njokima, gulaš No4.</p>
           </div>
           <div class="pin-step" data-step="2">
-            <p>Vatra je u središtu. Žar, dim i strpljenje pretvaraju nekoliko sastojaka u nešto što se pamti. <strong>Suvremeno, čisto, bez viška</strong> — onako kako i ime sugerira.</p>
+            <p>Otvoreno svaki dan od 11 do 23, kuhinja radi kroz cijeli dan. <strong>Za večeru je pametno rezervirati</strong>, a stolovi na trgu popune se prvi.</p>
           </div>
         </div>
         <div class="pin-img">
-          <img class="active" data-img="0" src="https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?auto=format&fit=crop&w=1100&q=80" alt="Kamene ulice Šibenika" />
-          <img data-img="1" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1100&q=80" alt="Moderno serviran tanjur" />
-          <img data-img="2" src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1100&q=80" alt="Meso sa žara" />
+          <img class="active" data-img="0" src="img/no4-terasa-crkva-sv-duha.webp" width="1100" height="1467" loading="lazy" alt="Terasa restorana No4 na malom trgu ispred renesansne crkve sv. Duha u Šibeniku" />
+          <img data-img="1" src="img/no4-biftek-umak-od-papra.webp" width="1100" height="898" loading="lazy" alt="Biftek s umakom od zelenog papra, polpetom od krumpira i pečenim tikvicama" />
+          <img data-img="2" src="img/no4-terasa-suncobrani.webp" width="1400" height="788" loading="lazy" alt="Terasa restorana No4 sa žutim suncobranima i postavljenim stolovima u kamenom dvorištu" />
         </div>
       </div></div>
     </div>
@@ -342,10 +512,14 @@
     <div class="wrap">
       <div class="sechead reveal"><h2>Atmosfera</h2><span class="idx">N°4 — Galerija</span></div>
       <div class="gal">
-        <figure class="g1 reveal"><img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1300&q=80" alt="Topli minimalistički interijer" /><figcaption>Interijer</figcaption></figure>
-        <figure class="g2 reveal"><img src="https://images.unsplash.com/photo-1559561853-08451507cbe7?auto=format&fit=crop&w=900&q=80" alt="Plated jelo" /><figcaption>Detalj</figcaption></figure>
-        <figure class="g3 reveal"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=80" alt="Mediteransko jelo" /><figcaption>Mediteran</figcaption></figure>
-        <figure class="g4 reveal"><img src="https://images.unsplash.com/photo-1498654896293-37aacf113fd9?auto=format&fit=crop&w=1300&q=80" alt="Jadransko more" /><figcaption>Jadran</figcaption></figure>
+        <figure class="g1 reveal"><img src="img/no4-terasa-suncobrani.webp" width="1400" height="788" loading="lazy" alt="Terasa restorana No4 sa žutim suncobranima i postavljenim stolovima u kamenom dvorištu" /><figcaption>Terasa</figcaption></figure>
+        <figure class="g2 reveal"><img src="img/no4-tuna-steak.webp" width="1100" height="1467" loading="lazy" alt="Tuna steak sa žara s krumpirom i rikolom na tamnom tanjuru" /><figcaption>Tuna steak</figcaption></figure>
+        <figure class="g3 reveal"><img src="img/no4-dagnje-na-buzaru.webp" width="1100" height="1467" loading="lazy" alt="Dagnje na buzaru s limunom i peršinom u kamenoj zdjeli" /><figcaption>Dagnje na buzaru</figcaption></figure>
+        <figure class="g4 reveal"><img src="img/no4-hladna-plata.webp" width="1200" height="900" loading="lazy" alt="Hladna plata s pršutom, tvrdim sirevima, orasima, maslinama i džemom od smokava" /><figcaption>Hladna plata</figcaption></figure>
+        <figure class="g1 reveal"><img src="img/no4-hobotnica-sa-zara.webp" width="1200" height="900" loading="lazy" alt="Hobotnica sa žara s krumpirom, tikvicama i pečenom paprikom" /><figcaption>Hobotnica sa žara</figcaption></figure>
+        <figure class="g2 reveal"><img src="img/no4-riblja-plata.webp" width="1100" height="1467" loading="lazy" alt="Riblja plata sa škampima, jakobovim kapicama, dagnjama i filetima bijele ribe" /><figcaption>Riblja plata</figcaption></figure>
+        <figure class="g3 reveal"><img src="img/no4-riblji-rizoto.webp" width="1100" height="1467" loading="lazy" alt="Riblji rižoto sa škampom i dagnjama" /><figcaption>Riblji rižoto</figcaption></figure>
+        <figure class="g4 reveal"><img src="img/no4-hladni-riblji-pijat.webp" width="1200" height="676" loading="lazy" alt="Hladni riblji pijat s tartarom od tune, inćunima, kozicama i jakobovom kapicom" /><figcaption>Hladni riblji pijat</figcaption></figure>
       </div>
     </div>
   </section>
@@ -358,26 +532,72 @@
         <div class="col left reveal">
           <h3>Gdje smo</h3>
           <p class="big">Trg Dinka<br>Zavorovića 4<br>22000 Šibenik</p>
-          <p>U srcu kamene jezgre, nekoliko koraka od katedrale sv. Jakova.</p>
-          <a class="lnk" href="https://maps.google.com/maps?q=Restoran+No+4+Sibenik" target="_blank" rel="noopener">Otvori u kartama →</a>
+          <p>Restoran je u staroj jezgri Šibenika, u uličici uz gornju Kalelargu. Stolovi stoje na malom trgu nasuprot renesansne crkve sv. Duha, a do katedrale sv. Jakova i rive je nekoliko minuta hoda. Jezgra je pješačka zona: mjesto u blizini teško se nalazi, pa računajte na javno parkiralište pod naplatom ili garažu i dolazak pješice.</p>
+          <a class="lnk" href="https://maps.google.com/?cid=7409364921369913322" target="_blank" rel="noopener">Otvori u kartama →</a>
           <h3 style="margin-top:48px">Kontakt</h3>
-          <p class="big" style="font-size:30px"><a href="tel:+385954422555">095 4422 555</a></p>
+          <p class="big" style="font-size:30px"><a href="tel:+385954422555">095 442 2555</a></p>
           <p><a href="mailto:restoranno4@gmail.com" style="border-bottom:1px solid var(--line)">restoranno4@gmail.com</a></p>
         </div>
         <div class="col right reveal">
           <h3>Radno vrijeme</h3>
           <ul class="hours">
-            <li><span>Ponedjeljak</span><span>Zatvoreno</span></li>
-            <li><span>Utorak – Četvrtak</span><span>12:00 – 23:00</span></li>
-            <li><span>Petak – Subota</span><span>12:00 – 00:00</span></li>
-            <li><span>Nedjelja</span><span>12:00 – 22:00</span></li>
+            <li><span>Ponedjeljak – Nedjelja</span><span>11:00 – 23:00</span></li>
           </ul>
-          <p style="margin-top:18px;font-size:15px">Kuhinja prima narudžbe do sat vremena prije zatvaranja. Za veće grupe preporučujemo raniju rezervaciju.</p>
+          <p style="margin-top:18px;font-size:15px">Otvoreno svaki dan, kuhinja radi kroz cijeli dan. Za večeru preporučujemo rezervaciju.</p>
           <button class="btn-res" data-open-res style="margin-top:28px">Rezerviraj stol</button>
         </div>
       </div>
       <div class="mapframe reveal">
-        <iframe src="https://maps.google.com/maps?q=Restoran+No+4+Sibenik&output=embed" loading="lazy" title="Karta — Restoran No. 4, Šibenik"></iframe>
+        <iframe src="https://maps.google.com/maps?q=43.7352902,15.8915463&z=17&output=embed" loading="lazy" title="Karta: Restoran No4, Trg Dinka Zavorovića 4, Šibenik"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="pad" id="faq">
+    <div class="wrap">
+      <div class="sechead reveal"><h2>Česta pitanja</h2><span class="idx">N°4 — Info</span></div>
+      <div class="faq-list">
+        <div class="faq-item reveal">
+          <h3>Kada je Restoran No4 otvoren?</h3>
+          <p>Otvoreni smo svaki dan od 11:00 do 23:00, od ponedjeljka do nedjelje. Kuhinja radi kroz cijeli dan, pa kod nas možete i ručati i večerati.</p>
+        </div>
+        <div class="faq-item reveal">
+          <h3>Gdje se točno nalazi No4?</h3>
+          <p>Na Trgu Dinka Zavorovića 4 u staroj jezgri Šibenika, u uličici uz gornju Kalelargu. Terasa je na malom trgu nasuprot crkve sv. Duha, nekoliko minuta hoda od katedrale sv. Jakova.</p>
+        </div>
+        <div class="faq-item reveal">
+          <h3>Treba li rezervirati stol?</h3>
+          <p>Za večeru preporučujemo rezervaciju. Stol rezervirate pozivom na <a href="tel:+385954422555">095 442 2555</a> ili e-mailom na <a href="mailto:restoranno4@gmail.com">restoranno4@gmail.com</a>.</p>
+        </div>
+        <div class="faq-item reveal">
+          <h3>Gdje parkirati u blizini?</h3>
+          <p>Stara jezgra Šibenika je pješačka zona i parkirno mjesto se teško nalazi. U blizini su javna parkirališta pod naplatom i garaža pod naplatom, pa do restorana dolazite pješice.</p>
+        </div>
+        <div class="faq-item reveal">
+          <h3>Imate li terasu?</h3>
+          <p>Da. Terasa je na malom trgu ispred crkve sv. Duha, u hladu kamenih zidova i suncobrana. Sjedi se i u uličici uz sam ulaz.</p>
+        </div>
+        <div class="faq-item reveal">
+          <h3>Primate li kartice?</h3>
+          <p>Da, primamo kreditne i debitne kartice te beskontaktno plaćanje mobitelom. Naravno, i gotovinu.</p>
+        </div>
+        <div class="faq-item reveal">
+          <h3>Je li restoran prikladan za djecu?</h3>
+          <p>Jest, djeca su dobrodošla. Za jela izvan jelovnika i porcije za najmlađe pitajte osoblje.</p>
+        </div>
+        <div class="faq-item reveal">
+          <h3>Primate li pse?</h3>
+          <p>Da, psi su dobrodošli na terasi.</p>
+        </div>
+        <div class="faq-item reveal">
+          <h3>Je li objekt pristupačan invalidskim kolicima?</h3>
+          <p>Prostor za sjedenje i parkiralište pristupačni su osobama u invalidskim kolicima.</p>
+        </div>
+        <div class="faq-item reveal">
+          <h3>Koliko košta jelo kod vas?</h3>
+          <p>Predjela su oko 14 do 20 €, dnevna ponuda za ručak počinje od 14,60 €, a steakovi idu od 32,50 € do 43,80 € za tomahawk. Cijene su iz jelovnika restorana.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -389,20 +609,26 @@
     <div class="foot-row">
       <div class="foot-c">
         <div class="lab">Restoran No. 4</div>
-        <a href="https://maps.google.com/maps?q=Restoran+No+4+Sibenik" target="_blank" rel="noopener">Trg Dinka Zavorovića 4, Šibenik</a>
-        <a href="tel:+385954422555">095 4422 555</a>
+        <a href="https://maps.google.com/?cid=7409364921369913322" target="_blank" rel="noopener">Trg Dinka Zavorovića 4, 22000 Šibenik</a>
+        <a href="tel:+385954422555">095 442 2555</a>
         <a href="mailto:restoranno4@gmail.com">restoranno4@gmail.com</a>
       </div>
       <div class="foot-c">
         <div class="lab">Posjetite</div>
-        <a href="#menu">Menu</a>
+        <a href="#menu">Jelovnik</a>
         <a href="#story">Naša priča</a>
         <a href="#posjet">Lokacija &amp; radno vrijeme</a>
+        <a href="#faq">Česta pitanja</a>
+      </div>
+      <div class="foot-c">
+        <div class="lab">Pratite nas</div>
+        <a href="https://www.facebook.com/restoranNo4/" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.instagram.com/restoranno4/" target="_blank" rel="noopener">Instagram</a>
       </div>
     </div>
     <div class="foot-bot">
-      <span>© 2026 Restoran No. 4 · Šibenik</span>
-      <span>4.5 ★ / 527 recenzija · Moderni mediteranski</span>
+      <span>© 2026 Restoran No. 4 · Šibenik · Otvoreno svaki dan 11:00 – 23:00</span>
+      <span>4,6 ★ / 969 recenzija na Googleu (srpanj 2026.)</span>
     </div>
   </div>
 </footer>

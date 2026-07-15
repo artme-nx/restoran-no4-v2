@@ -1,0 +1,12 @@
+# robots.txt — Restoran No4, Šibenik
+User-agent: *
+Allow: /
+
+# --- AI citation/search bots (NEVER block) ---
+# OAI-SearchBot, ChatGPT-User, Claude-SearchBot, Claude-User,
+# PerplexityBot, Perplexity-User, Googlebot, Bingbot
+
+# --- AI training bots (allowed by default) ---
+# GPTBot, ClaudeBot, Google-Extended, Meta-ExternalAgent, CCBot
+
+Sitemap: https://artme-nx.github.io/restoran-no4-v2/sitemap.xml

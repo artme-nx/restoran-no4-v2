@@ -1,0 +1,21 @@
+# Restoran No4
+> Steak i riba u skrivenoj uličici stare jezgre Šibenika, Trg Dinka Zavorovića 4.
+
+Restoran No4 je restoran u staroj jezgri Šibenika, u uličici uz gornju Kalelargu.
+Terasa je na malom trgu nasuprot renesansne crkve sv. Duha.
+Na jelovniku su steakovi (tomahawk, T-bone, ribeye, biftek, pfeffersteak, tagliata),
+riba i plodovi mora (tuna steak, dagnje na buzaru, riblja plata, hobotnica) te
+dnevna ponuda za ručak (skradinski rižoto, pašticada s domaćim njokima, gulaš No4).
+
+## Osnovni podaci
+- Adresa: Trg Dinka Zavorovića 4, 22000 Šibenik, Hrvatska
+- Telefon: 095 442 2555 (+385 95 442 2555)
+- E-mail: restoranno4@gmail.com
+- Radno vrijeme: svaki dan 11:00 – 23:00
+- Ocjena: 4,6 / 5 na Googleu (969 recenzija, srpanj 2026.)
+- Terasa, primaju se kartice, psi dopušteni, prikladno za djecu, pristupačno invalidskim kolicima
+
+## Ključne stranice
+- [Jelovnik](https://artme-nx.github.io/restoran-no4-v2/#menu): jela i cijene
+- [Posjet](https://artme-nx.github.io/restoran-no4-v2/#posjet): adresa, radno vrijeme, kontakt
+- [Česta pitanja](https://artme-nx.github.io/restoran-no4-v2/#faq): parking, rezervacije, djeca, ljubimci
